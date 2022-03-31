@@ -1,19 +1,19 @@
-import sharp from "sharp";
-import  express, {Request, Response} from "express";
+import sharp from 'sharp';
+import express, { Request, Response } from 'express';
 
+const processorRoutes = express.Router();
 
-const  processorRoutes = express.Router();
+//endpoint
 
-//endpoint 
-
-processorRoutes.get('/processor/Ht/:ht/Wd/:wd', async (req:Request, res:Response)=>{
-  
+processorRoutes.get('/processor', async (req: Request, res: Response) => {
+  try {
     await sharp('images/img.jpg')
-    .resize(300, 300)
-    .toFile('image-Output/newpic.jpg')
-     res.send('Task Completed')
-    
-})
+      .resize(300, 300)
+      .toFile('image-Output/newpic.jpg');
+    res.send('Task Completed');
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 export default processorRoutes;
-

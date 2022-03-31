@@ -1,9 +1,8 @@
-import express from "express";
-import processorRoutes from "./processor/main";
-
+import express from 'express';
+import processorRoutes from './processor/main';
 
 const routes = express.Router();
 
-routes.use('/', processorRoutes)
+routes.use('/', processorRoutes);
 
 export default routes;
